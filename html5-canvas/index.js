@@ -10,16 +10,19 @@ ctx.lineWidth = 100
 let isDrawing = false
 let lastX = 0
 let lastY = 0
+let hue = 0 // mother-effing hsl website
 
 function draw(e) {
   if (!isDrawing) return // stop the fn from running when they are not moused down
   console.log(e)
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
   ctx.beginPath()
   ctx.moveTo(lastX, lastY)
   ctx.lineTo(e.offsetX, e.offsetY)
   ctx.stroke()
   lastX = e.offsetX
   lastY = e.offsetY
+  hue++
 }
 
 canvas.addEventListener('mousedown', e => {
