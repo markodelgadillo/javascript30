@@ -11,6 +11,7 @@ let isDrawing = false
 let lastX = 0
 let lastY = 0
 let hue = 0 // mother-effing hsl website
+let direction = true
 
 function draw(e) {
   if (!isDrawing) return // stop the fn from running when they are not moused down
@@ -23,6 +24,17 @@ function draw(e) {
   lastX = e.offsetX
   lastY = e.offsetY
   hue++
+  if (hue >= 360) {
+    hue = 0
+  }
+  if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+    direction = !direction
+  }
+  if (direction) {
+    ctx.lineWidth++
+  } else {
+    ctx.lineWidth--
+  }
 }
 
 canvas.addEventListener('mousedown', e => {
