@@ -34,8 +34,8 @@ function displayMatches() {
       )
       return `
     <li>
-      <span class="name">${place.city}, ${place.state}</span>
-      <span class="population">${place.population}</span>
+      <span class="name">${cityName}, ${stateName}</span>
+      <span class="population">${numberWithCommas(place.population)}</span>
     </li>
       `
     })
