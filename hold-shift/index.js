@@ -5,7 +5,7 @@ function handleCheck(e) {
   // check if shiftkey is down
   // and check that it is being CHECKED, not unchecked
   let inBetween = false
-  if (e.shiftKey && this.checked) {
+  if (e.shiftKey && this.checked && lastChecked) {
     // go ahead and do what we please
     // loop over every single checkboxes
     checkboxes.forEach(checkbox => {
