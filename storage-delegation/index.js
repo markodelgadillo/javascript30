@@ -72,6 +72,8 @@ populateList(items, itemsList)
 function clearAll(e) {
   if (e.target.value === 'Clear All') {
     localStorage.clear()
+    itemsList.innerHTML = ''
+
     console.log(e.target)
   }
 }
