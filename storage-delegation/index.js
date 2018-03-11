@@ -68,3 +68,14 @@ populateList(items, itemsList)
 // Create a 'Clear All' button that will delete all items
 // Create a 'Check All' button to check all items
 // Create a 'Uncheck All' button to uncheck all items
+
+function clearAll(e) {
+  if (e.target.value === 'Clear All') {
+    localStorage.clear()
+    console.log(e.target)
+  }
+}
+
+addItems.addEventListener('click', clearAll)
+addItems.addEventListener('click', checkAll)
+addItems.addEventListener('click', uncheckAll)
