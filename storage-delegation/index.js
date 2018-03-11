@@ -12,6 +12,9 @@ function addItem(e) {
   }
   items.push(item)
   populateList(items, itemsList)
+  // sets items into LocalStorage
+  localStorage.setItem('items', JSON.stringify(items))
+
   this.reset()
   console.table(items)
 }
