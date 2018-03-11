@@ -54,6 +54,8 @@ function toggleDone(e) {
   // i.e. If its true, it toggles to false
   // and vice versa
   items[index].done = !items[index].done
+  localStorage.setItem('items', JSON.stringify(items))
+  populateList(items, itemsList)
 }
 
 addItems.addEventListener('submit', addItem)
@@ -61,3 +63,8 @@ itemsList.addEventListener('click', toggleDone)
 
 // runs the function on page load
 populateList(items, itemsList)
+
+// challenge
+// Create a 'Clear All' button that will delete all items
+// Create a 'Check All' button to check all items
+// Create a 'Uncheck All' button to uncheck all items
