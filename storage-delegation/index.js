@@ -80,13 +80,16 @@ function clearAll(e) {
   }
 }
 
+// make a function that will add the key 'checked' to the dataset
+// on clicking the checkbox
 function checkAll(e) {
   if (e.target.value === 'Check All') {
-    ingredient.forEach(checkbox => {
-      checkbox.setAttribute('checked', '')
-    })
+    for (i = 0; i < items.length; i++) {
+      items[i].done = true
+    }
+    localStorage.setItem('items', JSON.stringify(items))
+    populateList(items, itemsList)
   }
-  console.log(e.target.value)
 }
 
 addItems.addEventListener('click', clearAll)
