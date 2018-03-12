@@ -8,7 +8,7 @@ const itemsList = document.querySelector('.plates')
 // OR will still function with an empty array
 const items = JSON.parse(localStorage.getItem('items')) || []
 
-const ingredient = document.querySelectorAll('li')
+let ingredient = ''
 
 function addItem(e) {
   e.preventDefault()
@@ -42,6 +42,7 @@ function populateList(plates = [], platesList) {
   `
     })
     .join('')
+  ingredient = document.querySelectorAll('[type=checkbox]')
 }
 
 function toggleDone(e) {
@@ -81,8 +82,8 @@ function clearAll(e) {
 
 function checkAll(e) {
   if (e.target.value === 'Check All') {
-    ingredient.forEach(li => {
-      li.setAttribute('checked', '')
+    ingredient.forEach(checkbox => {
+      checkbox.setAttribute('checked', '')
     })
   }
   console.log(e.target.value)
@@ -90,4 +91,4 @@ function checkAll(e) {
 
 addItems.addEventListener('click', clearAll)
 addItems.addEventListener('click', checkAll)
-addItems.addEventListener('click', uncheckAll)
+// addItems.addEventListener('click', uncheckAll)
