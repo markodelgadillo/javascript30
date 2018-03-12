@@ -80,8 +80,6 @@ function clearAll(e) {
   }
 }
 
-// make a function that will add the key 'checked' to the dataset
-// on clicking the checkbox
 function checkAll(e) {
   if (e.target.value === 'Check All') {
     for (i = 0; i < items.length; i++) {
@@ -92,6 +90,16 @@ function checkAll(e) {
   }
 }
 
+function uncheckAll(e) {
+  if (e.target.value === 'Uncheck All') {
+    for (i = 0; i < items.length; i++) {
+      items[i].done = false
+    }
+    localStorage.setItem('items', JSON.stringify(items))
+    populateList(items, itemsList)
+  }
+}
+
 addItems.addEventListener('click', clearAll)
 addItems.addEventListener('click', checkAll)
-// addItems.addEventListener('click', uncheckAll)
+addItems.addEventListener('click', uncheckAll)
