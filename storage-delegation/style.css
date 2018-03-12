@@ -79,3 +79,22 @@ h2 {
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.extra-btns {
+  width: 30%;
+  display: inline-block;
+  float: left;
+  margin: 5px calc(3% / 2);
+  padding: 0 5px;
+  font-size: 0.5em;
+}
+
+.extra-btns:nth-child(2) {
+  color: green;
+}
+
+.extra-btns:last-child {
+  color: red;
+  width: 32%;
+  margin: 5px 0 0 calc(3.3% / 2);
+}
