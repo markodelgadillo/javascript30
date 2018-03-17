@@ -19,7 +19,8 @@ function newBandsArr(bands) {
   bands.forEach(band => {
     let splitBand = band.split(' ')
     if (splitBand[0].match(/\b(The|A|An)\b/)) {
-      let newBand = splitBand.slice(1, splitBand.length - 1).join(' ')
+      let newBand = splitBand.slice(1, splitBand.length).join(' ')
+      newBand = newBand.concat(' ' + splitBand[0])
       newBands.push(newBand)
     } else {
       newBands.push(band)
@@ -30,8 +31,25 @@ function newBandsArr(bands) {
 
 function sortBands(bands, newBands) {
   newBands.sort()
-  for (let i of newbands) {
-  }
+  addArticle(newBands)
+}
 
-  console.log(newBands)
+function addArticle(newBands) {
+  const sortedBands = []
+  newBands.forEach(band => {
+    let splitBand = band.split(' ')
+    if (splitBand[splitBand.length - 1].match(/\b(The|A|An)\b/)) {
+      console.log(splitBand)
+      let article = splitBand[splitBand.length - 1]
+      console.log(article)
+      splitBand = splitBand.slice(0, splitBand.length - 1).join(' ')
+      console.log(splitBand)
+      splitBand = article.concat(' ' + splitBand)
+      sortedBands.push(splitBand)
+    } else {
+      splitBand = splitBand.join(' ')
+      sortedBands.push(splitBand)
+    }
+  })
+  return sortedBands
 }
