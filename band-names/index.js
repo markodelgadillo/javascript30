@@ -39,11 +39,8 @@ function addArticle(newBands) {
   newBands.forEach(band => {
     let splitBand = band.split(' ')
     if (splitBand[splitBand.length - 1].match(/\b(The|A|An)\b/)) {
-      console.log(splitBand)
       let article = splitBand[splitBand.length - 1]
-      console.log(article)
       splitBand = splitBand.slice(0, splitBand.length - 1).join(' ')
-      console.log(splitBand)
       splitBand = article.concat(' ' + splitBand)
       sortedBands.push(splitBand)
     } else {
@@ -51,5 +48,23 @@ function addArticle(newBands) {
       sortedBands.push(splitBand)
     }
   })
-  return sortedBands
+  console.log(sortedBands)
+  listBands(sortedBands)
 }
+
+function listBands(bands) {
+  const list = document.querySelector('#bands')
+  list.innerHTML = bands
+    .map(band => {
+      return `
+
+    <li>
+    ${band}
+    </li>
+
+    `
+    })
+    .join('')
+}
+
+newBandsArr(bands)
