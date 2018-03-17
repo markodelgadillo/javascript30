@@ -38,11 +38,3 @@ const minutes = Math.floor(secondsLeft / 60)
 secondsLeft = secondsLeft % 60
 
 console.log(hours + ' hours,', minutes + ' minutes,', secondsLeft + ' seconds')
-
-// ONLY using reduce
-
-// let total = timeNodes.reduce((total, seconds) => {
-//   const [mins, secs] = parseFloat(dataset.time.value.split(':'))
-//   seconds = mins * 60 + secs
-//   return total + seconds
-// })
