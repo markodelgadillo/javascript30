@@ -14,20 +14,24 @@ const bands = [
   'An Old Dog'
 ]
 
-function removeArticles(bands) {
+function newBandsArr(bands) {
   const newBands = []
   bands.forEach(band => {
     let splitBand = band.split(' ')
-    console.log(splitBand[0])
-    if (splitBand.indexOf('The' || 'A' || 'An') === 0) {
-      newBand = splitBand.slice(1, splitBand[0].length + 1).join(' ')
-      console.log(newBand)
+    if (splitBand[0].match(/\b(The|A|An)\b/)) {
+      let newBand = splitBand.slice(1, splitBand.length - 1).join(' ')
       newBands.push(newBand)
     } else {
       newBands.push(band)
     }
   })
-  return newBands
+  return sortBands(bands, newBands)
 }
 
-removeArticles(bands)
+function sortBands(bands, newBands) {
+  newBands.sort()
+  for (let i of newbands) {
+  }
+
+  console.log(newBands)
+}
