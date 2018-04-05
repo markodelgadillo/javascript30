@@ -39,7 +39,15 @@ function start() {
   speechSynthesis.speak(msg)
 }
 
+function setOption() {
+  console.log(this.name, this.value)
+  msg[this.name] = this.value
+  toggle()
+}
+
 speechSynthesis.addEventListener('voiceschanged', populateVoices)
 voicesDropdown.addEventListener('change', setVoice)
 speakButton.addEventListener('click', start)
 stopButton.addEventListener('click', stop)
+
+options.forEach(option => option.addEventListener('change', setOption))
