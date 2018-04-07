@@ -89,7 +89,9 @@ nav a {
   text-transform: uppercase;
 }
 
-.fixed-nav {
+/* when the body has a class of 'fixed-nav',
+  the nav itself will inherit these css values */
+.fixed-nav nav {
   position: fixed;
   box-shadow: 0 5px rgba(0, 0, 0, 0.1);
 }
