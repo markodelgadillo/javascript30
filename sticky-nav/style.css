@@ -23,7 +23,7 @@ body {
   padding: 40px;
   text-align: justify;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
-  transform: scale(0.98);
+  transform: scale(0.97);
   transition: transform 0.5s;
 }
 
@@ -85,7 +85,7 @@ nav a {
   padding: 20px;
   display: inline-block;
   color: white;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out 0.5s;
   text-transform: uppercase;
 }
 
@@ -94,4 +94,15 @@ nav a {
 .fixed-nav nav {
   position: fixed;
   box-shadow: 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* when the body has a class of 'fixed-nav',
+  the list item with the class 'logo' will
+  have a width of 500px to reveal itself in the nav */
+.fixed-nav li.logo {
+  max-width: 500px;
+}
+
+.fixed-nav .site-wrap {
+  transform: scale(1);
 }
