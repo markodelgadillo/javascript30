@@ -6,11 +6,25 @@ function handleEnter() {
   console.log('Enter!!!')
   this.classList.add('trigger-enter')
   setTimeout(() => this.classList.add('trigger-enter-active'), 150)
+  background.classList.add('open')
+  const dropdown = this.querySelector('.dropdown')
+  const dropdownCoords = dropdown.getBoundingClientRect()
+  const navCoords = nav.getBoundingClientRect()
+  const coords = {
+    height: dropdownCoords.height,
+    width: dropdownCoords.width
+  }
+
+  background.style.setProperty('width', `${coords.width}px`)
+  background.style.setProperty('height', `${coords.height}px`)
+
+  console.log(navCoords)
 }
 
 function handleLeave() {
   console.log('Leave!!!')
   this.classList.remove('trigger-enter', 'trigger-enter-active')
+  background.classList.remove('open')
 }
 
 triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
