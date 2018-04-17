@@ -5,6 +5,7 @@ let scrollLeft
 
 slider.addEventListener('mousedown', e => {
   isDown = true
+  e.preventDefault()
   slider.classList.add('active')
   startX = e.pageX - slider.offsetLeft
   scrollLeft = slider.scrollLeft
@@ -27,6 +28,6 @@ slider.addEventListener('mousemove', e => {
   const x = e.pageX - slider.offsetLeft
   console.log({ x, startX })
   console.log(isDown, 'Do Work!')
-  const walk = x - startX
+  const walk = (x - startX) * 3
   slider.scrollLeft = scrollLeft - walk
 })
