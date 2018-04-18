@@ -2,7 +2,8 @@ const speed = document.querySelector('.speed')
 const bar = speed.querySelector('.speed-bar')
 const video = document.querySelector('.flex')
 
-speed.addEventListener('mouseover', function(e) {
+speed.addEventListener('mousemove', function(e) {
   const y = e.pageY - this.offsetTop
-  console.log(y)
+  const percent = Math.round(y / this.offsetHeight * 100) + '%'
+  console.log(percent)
 })
