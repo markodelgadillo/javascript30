@@ -4,11 +4,14 @@ const video = document.querySelector('.flex')
 
 speed.addEventListener('mousemove', function(e) {
   const y = e.pageY - this.offsetTop
-  const percent = Math.round(y / this.offsetHeight * 100) + '%'
+  const percent = y / this.offsetHeight
   //min and max are the multplier speeds
   const min = 0.4
   const max = 4
-  const height = percent
+  const height = Math.round(percent * 100) + '%'
   bar.style.height = height
-  console.log(percent)
+  // look into this math
+  const playbackRate = percent * (max - min) + min
+  bar.textContent = playbackRate.toFixed(2) + 'x'
+  video.playbackRate = playbackRate
 })
