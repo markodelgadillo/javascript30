@@ -1,6 +1,7 @@
 let countDown
 
 function timer(seconds) {
+  displayTimeLeft(seconds)
   const now = Date.now()
   const then = now + seconds * 1000
   countDown = setInterval(() => {
@@ -15,5 +16,10 @@ function timer(seconds) {
 }
 
 function displayTimeLeft(seconds) {
-  console.log(seconds)
+  const minutes = Math.floor(seconds / 60)
+  let remainderSeconds = seconds % 60
+  if (remainderSeconds <= 9) {
+    remainderSeconds = '0' + `${remainderSeconds}`
+  }
+  console.log(`${minutes + ':' + remainderSeconds}`)
 }
