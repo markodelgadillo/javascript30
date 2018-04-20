@@ -1,4 +1,5 @@
 let countDown
+const timeLeft = document.querySelector('.display__time-left')
 
 function timer(seconds) {
   displayTimeLeft(seconds)
@@ -21,5 +22,5 @@ function displayTimeLeft(seconds) {
   if (remainderSeconds <= 9) {
     remainderSeconds = '0' + `${remainderSeconds}`
   }
-  console.log(`${minutes + ':' + remainderSeconds}`)
+  timeLeft.textContent = `${minutes + ':' + remainderSeconds}`
 }
