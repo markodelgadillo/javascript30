@@ -1,6 +1,7 @@
 let countDown
 const timeLeft = document.querySelector('.display__time-left')
 const endTime = document.querySelector('.display__end-time')
+const buttons = document.querySelectorAll('[data-time]')
 
 function timer(seconds) {
   displayTimeLeft(seconds)
@@ -38,6 +39,13 @@ function displayEndTime(timestamp) {
     minutes < 10 ? '0' + minutes : minutes
   }`
 }
+
+function startTimer() {
+  clearInterval()
+  timer(this.dataset.time)
+}
+
+buttons.forEach(button => button.addEventListener('click', startTimer))
 
 // function allZeroes(time) {
 //   if (time == '0:00'){
