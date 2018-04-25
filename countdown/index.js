@@ -2,6 +2,7 @@ let countDown
 const timeLeft = document.querySelector('.display__time-left')
 const endTime = document.querySelector('.display__end-time')
 const buttons = document.querySelectorAll('[data-time]')
+const audio = new Audio('')
 
 function timer(seconds) {
   clearInterval(countDown)
@@ -25,6 +26,9 @@ function displayTimeLeft(seconds) {
   let remainderSeconds = seconds % 60
   if (remainderSeconds <= 9) {
     remainderSeconds = '0' + `${remainderSeconds}`
+  }
+  if (seconds === 0) {
+    alarm()
   }
   const time = (timeLeft.textContent = `${minutes + ':' + remainderSeconds}`)
   // adds timer to the browser tab
@@ -52,6 +56,16 @@ document.customForm.addEventListener('submit', function(e) {
   timer(mins * 60)
   this.reset()
 })
+
+function alarm() {
+  timeLeft.classList.add('blink')
+  audio.play()
+}
+
+function snooze() {
+  timeLeft.classList.remove('blink')
+  audio.stop()
+}
 
 // function allZeroes(time) {
 //   if (time == '0:00'){
