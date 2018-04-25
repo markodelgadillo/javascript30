@@ -68,11 +68,3 @@ document.customForm.addEventListener('submit', function(e) {
   timer(mins * 60)
   this.reset()
 })
-
-// function allZeroes(time) {
-//   if (time == '0:00'){
-//   setInterval(time => {
-//       time =
-//     }
-//   }, 250)
-// }
