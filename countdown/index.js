@@ -49,6 +49,18 @@ function startTimer() {
   timer(this.dataset.time)
 }
 
+function alarm() {
+  timeLeft.classList.add('blink')
+  timeLeft.addEventListener('click', snooze)
+  audio.play()
+}
+
+function snooze() {
+  timeLeft.classList.remove('blink')
+  timeLeft.removeEventListener('click')
+  audio.stop()
+}
+
 buttons.forEach(button => button.addEventListener('click', startTimer))
 document.customForm.addEventListener('submit', function(e) {
   e.preventDefault()
@@ -56,16 +68,6 @@ document.customForm.addEventListener('submit', function(e) {
   timer(mins * 60)
   this.reset()
 })
-
-function alarm() {
-  timeLeft.classList.add('blink')
-  audio.play()
-}
-
-function snooze() {
-  timeLeft.classList.remove('blink')
-  audio.stop()
-}
 
 // function allZeroes(time) {
 //   if (time == '0:00'){
