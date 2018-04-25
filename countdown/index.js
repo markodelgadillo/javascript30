@@ -2,7 +2,7 @@ let countDown
 const timeLeft = document.querySelector('.display__time-left')
 const endTime = document.querySelector('.display__end-time')
 const buttons = document.querySelectorAll('[data-time]')
-const audio = new Audio('')
+const audio = document.querySelector('#myAudio')
 
 function timer(seconds) {
   clearInterval(countDown)
@@ -57,8 +57,8 @@ function alarm() {
 
 function snooze() {
   timeLeft.classList.remove('blink')
-  timeLeft.removeEventListener('click')
-  audio.stop()
+  timeLeft.removeEventListener('click', snooze)
+  audio.pause()
 }
 
 buttons.forEach(button => button.addEventListener('click', startTimer))
