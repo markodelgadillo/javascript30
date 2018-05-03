@@ -3,7 +3,7 @@ const scoreBoard = document.querySelector('.score')
 const moles = document.querySelectorAll('.mole')
 let lastHole
 
-function randTime(min, max) {
+function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min)
 }
 
@@ -11,9 +11,20 @@ function randomHole(holes) {
   const idx = Math.floor(Math.random() * holes.length)
   const hole = holes[idx]
   if (hole === lastHole) {
-    randomHole(hole)
     console.log('Nah!')
+    return randomHole(holes)
   }
-  console.log(hole)
-  let lastHole = hole
+  lastHole = hole
+  return hole
+}
+
+function peep() {
+  const time = randomTime(200, 1000)
+  console.log(time)
+  const hole = randomHole(holes)
+  hole.classList.add('up')
+  setTimeout(() => {
+    hole.classList.remove('up')
+    peep()
+  }, time)
 }
